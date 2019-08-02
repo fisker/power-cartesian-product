@@ -18,7 +18,7 @@ class FastCartesianProduct {
       }
 
       if (getIterableSize(elements) <= 0) {
-        throw new Error('`sets` should not have empty elements')
+        throw new Error('`sets` should not has empty elements')
       }
     })
 
