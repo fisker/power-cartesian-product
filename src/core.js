@@ -2,6 +2,7 @@ import SYMBOL_ITERATOR from './utils/symbol-iterator'
 import isFinite from './utils/is-finite'
 import each from './utils/each'
 import getIterableSize from './utils/get-iterable-size'
+import getIterableBigSize from './utils/get-iterable-big-size'
 import getIterableElement from './utils/get-iterable-element'
 import isIterable from './utils/is-iterable'
 
@@ -78,6 +79,17 @@ class FastCartesianProduct {
       if (!isFinite(size)) {
         return false
       }
+    })
+
+    return size
+  }
+
+  get bigSize() {
+    let size = BigInt(1)
+
+    each(this.sets, elements => {
+      const elementsSize = getIterableBigSize(elements)
+      size *= elementsSize
     })
 
     return size

@@ -69,6 +69,22 @@ test('supports `Iterable`', t => {
   t.is([...combinations].join('|'), '0,0|0,1|1,0|1,1')
 })
 
+test('size & bigSize', t => {
+  const MAX_ARRAY_LENGTH = 2 ** 32 - 1
+  const element = new Array(MAX_ARRAY_LENGTH)
+  const {bigSize, size} = product(Array.from({length: 33}, () => element))
+
+  t.is(size, Infinity)
+  t.is(
+    bigSize,
+    BigInt(
+      '772103316315349105706014416063813378269318666861765024749836830511609335567106186231578700102953323105081739246412669785553431723085370935750037827673052894357512235463946499050426982824119747058048805090828544034771248058426863536672304703225363101118206353134873876903786099067350665495893380022607743740081787109375'
+    )
+    // babel transform to Math.pow, throws TypeError
+    // BigInt(MAX_ARRAY_LENGTH) ** BigInt(20)
+  )
+})
+
 test('infinity products', t => {
   const element = Array.from({length: 10}, (_, i) => i)
   const combinations = product(Array.from({length: 1024}, () => element))

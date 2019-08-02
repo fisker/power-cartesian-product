@@ -1,15 +1,15 @@
-# fast-cartesian-product
+# power-cartesian-product
 
-> cheap and fast cartesian-product
+> powerful cartesian product
 
 ## Examples
 
 ```js
-import FastCartesionProduct from 'fast-cartesian-product'
+import PowerCartesianProduct from 'power-cartesian-product'
 
 const inputs = [[0, 1], ['A', 'B']]
 
-for (const combination of new FastCartesionProduct(inputs)) {
+for (const combination of new PowerCartesianProduct(inputs)) {
   console.log(combination)
 }
 ```
@@ -17,7 +17,7 @@ for (const combination of new FastCartesionProduct(inputs)) {
 more examples
 
 ```sh
-git clone https://github.com/fisker/fast-cartesian-product.git
+git clone https://github.com/fisker/power-cartesian-product.git
 cd fast-cartesian-product
 yarn
 node -r esm examples/standard-52-card-deck.js
@@ -38,7 +38,7 @@ lib/
 
 ## API
 
-### combinations = new FastCartesionProduct(sets)
+### combinations = new PowerCartesianProduct(sets)
 
 Returns: combinations
 
@@ -48,11 +48,11 @@ type: `iterable | arrayLike`
 
 #### combinations
 
-instance of `FastCartesionProduct`
+instance of `PowerCartesianProduct`
 
 it's not `Array`, also no `length`
 
-get `Array`
+to get `Array`
 
 ```js
 [...combinations]
@@ -72,20 +72,20 @@ let (const combination of combinations) {
 // es5
 
 var array = []
-var iterator = combinations[FastCartesionProduct.SYMBOL_ITERATOR]()
+var iterator = combinations[PowerCartesianProduct.SYMBOL_ITERATOR]()
 var data
 while (!(data = iterator.next()).done) {
   array.push(data.value)
 }
 ```
 
-get `Set`
+to get `Set`
 
 ```js
 new Set(combinations)
 ```
 
-#### FastCartesionProduct#get(index)
+#### PowerCartesianProduct#get(index)
 
 get nth combination
 
@@ -95,7 +95,7 @@ Returns: `array<array>`
 combinations.get(3) // 3rd combination
 ```
 
-#### FastCartesionProduct#size
+#### PowerCartesianProduct#size
 
 a getter to get `size` of combinations, this might be `Infinity` for big combinations.
 
@@ -105,18 +105,24 @@ Returns: `int | infinity`
 combinations.size // 16
 ```
 
-#### FastCartesionProduct.SYMBOL_ITERATOR
+#### PowerCartesianProduct#bigSize
+
+a getter to get BigInt `size` of combinations.
+
+Returns: `BigInt`
+
+```js
+combinations.size // 16n
+```
+
+#### PowerCartesianProduct.SYMBOL_ITERATOR
 
 symbol to get Iterator,
 for environment without `Symbol`, it's string `@@iterator`, otherwise it's `Symbol.iterator`
 
-if you are not sure, you can always use `combinations[FastCartesionProduct.SYMBOL_ITERATOR]()`
+if you are not sure, you can always use `combinations[PowerCartesianProduct.SYMBOL_ITERATOR]()`
 
 ```js
-var iterator = combinations[FastCartesionProduct.SYMBOL_ITERATOR]()
+var iterator = combinations[PowerCartesianProduct.SYMBOL_ITERATOR]()
 iterator.next() // {value: [0, 1], done: false}
 ```
-
-## Todo
-
-[ ] BigInt of size

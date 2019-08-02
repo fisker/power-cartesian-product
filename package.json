@@ -1,14 +1,14 @@
 {
-  "name": "fast-cartesian-product",
-  "description": "cheap and fast cartesian-product",
+  "name": "power-cartesian-product",
+  "description": "powerful cartesian product",
   "version": "0.0.2",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "browser": "lib/index.min.js",
   "unpkg": "lib/index.min.js",
   "jsdelivr": "lib/index.min.js",
-  "repository": "fisker/fast-cartesian-product",
-  "homepage": "https://github.com/fisker/fast-cartesian-product#readme",
+  "repository": "fisker/power-cartesian-product",
+  "homepage": "https://github.com/fisker/power-cartesian-product#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
