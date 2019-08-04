@@ -2,6 +2,16 @@
 
 > powerful cartesian product
 
+this module was named `fast-cartesian-product` before `v0.0.3`, now it's split into to two modules:
+
+- [`fast-cartesian-product`](https://github.com/fisker/fast-cartesian-product)
+
+  focusing on speed, and only work on arrays
+
+- [`power-cartesian-product`](https://github.com/fisker/power-cartesian-product)
+
+  focusing on unlimited combinations, less memory, more data types
+
 ## Examples
 
 ```js
