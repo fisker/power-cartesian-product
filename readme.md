@@ -89,10 +89,24 @@ new Set(combinations)
 
 get nth combination
 
-Returns: `array<array>`
+Returns: `array`
 
 ```js
-combinations.get(3) // 3rd combination
+// 3rd combination
+new PowerCartesianProduct([[0, 1], ['A', 'B']]).get(2)
+// -> [1, 'A']
+```
+
+#### PowerCartesianProduct#getIndexes(index)
+
+get nth combination indexes
+
+Returns: `array<number>`
+
+```js
+// 3rd combination indexes
+new PowerCartesianProduct([[0, 1], ['A', 'B']]).getIndexes(2)
+// -> [1, 0]
 ```
 
 #### PowerCartesianProduct#size
@@ -102,7 +116,11 @@ a getter to get `size` of combinations, this might be `Infinity` for big combina
 Returns: `int | infinity`
 
 ```js
-combinations.size // 16
+new PowerCartesianProduct([[0, 1], ['A', 'B']]).size
+// -> 4
+
+new PowerCartesianProduct(new Array(256).fill(new Array(16))).size
+// -> Infinity
 ```
 
 #### PowerCartesianProduct#bigSize
@@ -112,7 +130,11 @@ a getter to get BigInt `size` of combinations.
 Returns: `BigInt`
 
 ```js
-combinations.size // 16n
+new PowerCartesianProduct([[0, 1], ['A', 'B']]).bigSize
+// -> 4n
+
+new PowerCartesianProduct(new Array(33).fill(new Array(2 ** 32 - 1))).bigSize
+// -> 772103316315349105706014416063813378269318666861765024749836830511609335567106186231578700102953323105081739246412669785553431723085370935750037827673052894357512235463946499050426982824119747058048805090828544034771248058426863536672304703225363101118206353134873876903786099067350665495893380022607743740081787109375n
 ```
 
 #### PowerCartesianProduct.SYMBOL_ITERATOR

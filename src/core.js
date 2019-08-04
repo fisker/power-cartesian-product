@@ -26,6 +26,30 @@ class FastCartesianProduct {
     this.sets = sets
   }
 
+  getIndexes(index) {
+    const setsSize = getIterableSize(this.sets)
+
+    const indexes = new Array(setsSize)
+
+    let indexRemaining = index
+
+    for (let setsIndex = 0; setsIndex < setsSize; setsIndex += 1) {
+      const combinationIndex = setsSize - setsIndex - 1
+      const elements = getIterableElement(this.sets, combinationIndex)
+      const elementsSize = getIterableSize(elements)
+      let elementsIndex = 0
+
+      if (indexRemaining !== 0) {
+        elementsIndex = indexRemaining % elementsSize
+        indexRemaining = (indexRemaining - elementsIndex) / elementsSize
+      }
+
+      indexes[combinationIndex] = elementsIndex
+    }
+
+    return indexes
+  }
+
   get(index) {
     const setsSize = getIterableSize(this.sets)
     const combination = new Array(setsSize)
@@ -38,9 +62,13 @@ class FastCartesianProduct {
       const combinationIndex = setsSize - setsIndex - 1
       const elements = getIterableElement(this.sets, combinationIndex)
       const elementsSize = getIterableSize(elements)
-      const elementsIndex = indexRemaining % elementsSize
-      indexRemaining -= elementsIndex
-      indexRemaining /= elementsSize
+      let elementsIndex = 0
+
+      if (indexRemaining !== 0) {
+        elementsIndex = indexRemaining % elementsSize
+        indexRemaining = (indexRemaining - elementsIndex) / elementsSize
+      }
+
       combination[combinationIndex] = getIterableElement(
         elements,
         elementsIndex
