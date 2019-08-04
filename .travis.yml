@@ -1,15 +1,14 @@
 language: node_js
 node_js:
   - "lts/*"
-sudo: false
-cache: yarn
+cache:
+  yarn: true
 before_script:
   - npm install --global yarn nyc
 script:
   - yarn lint
   - yarn build
   - yarn test-coverage
-  # - yarn benchmarks
 after_script:
   - npm install --global coveralls
-  - nyc report --reporter=text-lcov | coveralls
+  - cat ./coverage/lcov.info | coveralls
