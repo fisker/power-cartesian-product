@@ -64,7 +64,7 @@
     "lint:markdown": "markdownlint \"**/*.md\" --ignore \"**/node_modules/**\"",
     "lint:prettier": "prettier \"**/*.{css,html,js,json,less,md,scss,ts,vue,yaml,yml}\" --check",
     "test": "ava",
-    "test-coverage": "nyc --reporter=lcov --reporter=text ava",
+    "test-coverage": "nyc ava",
     "clean": "rimraf lib",
     "release": "run-s clean build format test dist"
   },
@@ -75,7 +75,12 @@
   },
   "sideEffects": false,
   "nyc": {
+    "all": true,
     "require": "esm",
+    "reporter": [
+      "lcov",
+      "text"
+    ],
     "include": [
       "src/**"
     ]
