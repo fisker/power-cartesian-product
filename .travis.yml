@@ -3,7 +3,7 @@ node_js:
   - "lts/*"
 cache:
   yarn: true
-before_script:
+before_install:
   - npm install --global yarn nyc
 install:
   - yarn
