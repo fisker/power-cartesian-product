@@ -22,8 +22,8 @@ dist/**
 **/fixtures/**
 
 # test
-.nyc_outputs/**
+.nyc_output/**
 coverage/**
 
 # project glob
-benchmarks
+/lib
