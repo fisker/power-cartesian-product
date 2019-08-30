@@ -56,6 +56,8 @@ Returns: combinations
 
 type: `iterable | arrayLike | GeneratorFunction`
 
+\*notice: `GeneratorFunction` is supported, not `generator` yet, [#57](https://github.com/fisker/power-cartesian-product/pull/57)
+
 #### combinations
 
 instance of `PowerCartesianProduct`
@@ -152,7 +154,7 @@ new PowerCartesianProduct(new Array(33).fill(new Array(2 ** 32 - 1))).bigSize
 symbol to get Iterator,
 for environment without `Symbol`, it's string `@@iterator`, otherwise it's `Symbol.iterator`
 
-if you are not sure, you can always use `combinations[PowerCartesianProduct.SYMBOL_ITERATOR]()`
+if you are not sure, you should always use `combinations[PowerCartesianProduct.SYMBOL_ITERATOR]()`
 
 ```js
 var iterator = combinations[PowerCartesianProduct.SYMBOL_ITERATOR]()
