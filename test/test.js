@@ -70,13 +70,18 @@ test('supports `Iterable`', t => {
 })
 
 test('supports `GeneratorFunction`', t => {
-  const generator = function *() {
+  function* elementsGenerator() {
     yield 0
     yield 1
   }
 
-  const combinations = product([generator, generator])
-  t.is([...combinations].join('|'), '0,0|0,1|1,0|1,1')
+  function* generator() {
+    yield elementsGenerator
+    yield elementsGenerator
+  }
+
+  t.is([...product(generator)].join('|'), '0,0|0,1|1,0|1,1')
+  t.is([...product([elementsGenerator, elementsGenerator])].join('|'), '0,0|0,1|1,0|1,1')
 })
 
 test('size & bigSize', t => {
