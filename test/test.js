@@ -81,7 +81,10 @@ test('supports `GeneratorFunction`', t => {
   }
 
   t.is([...product(generator)].join('|'), '0,0|0,1|1,0|1,1')
-  t.is([...product([elementsGenerator, elementsGenerator])].join('|'), '0,0|0,1|1,0|1,1')
+  t.is(
+    [...product([elementsGenerator, elementsGenerator])].join('|'),
+    '0,0|0,1|1,0|1,1'
+  )
 })
 
 test('size & bigSize', t => {
