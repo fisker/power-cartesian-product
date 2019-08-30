@@ -1,5 +1,5 @@
 import test from 'ava'
-import FastCartesianProduct from './src'
+import FastCartesianProduct from '../src'
 
 const product = sets => new FastCartesianProduct(sets)
 

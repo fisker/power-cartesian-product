@@ -11,17 +11,9 @@ module.exports = {
   root: true,
   env: {},
   parserOptions: {},
-  extends: ['@fisker'],
+  extends: ['@fisker/ava'],
   settings: {},
   rules: {},
   plugins: [],
   globals: {},
-  overrides: [
-    {
-      files: ['benchmarks/*', 'examples/*', 'test/*'],
-      rules: {
-        'import/no-extraneous-dependencies': 'off',
-      },
-    },
-  ],
 }
