@@ -3,16 +3,16 @@ import isArrayLike from './is-array-like'
 import isSet from './is-set'
 import isFunction from './is-function'
 import isValue from './is-value'
+import isGeneratorFunction from './is-generator-function'
 
 function isIterable(value) {
-  if (
+  return (
     isValue(value) &&
-    (isFunction(value[SYMBOL_ITERATOR]) || isArrayLike(value) || isSet(value))
-  ) {
-    return true
-  }
-
-  return false
+    (isGeneratorFunction(value) ||
+      isFunction(value[SYMBOL_ITERATOR]) ||
+      isArrayLike(value) ||
+      isSet(value))
+  )
 }
 
 export default isIterable

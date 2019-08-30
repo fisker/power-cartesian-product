@@ -1,21 +1,21 @@
 import SYMBOL_ITERATOR from './symbol-iterator'
 import isArrayLike from './is-array-like'
 import isFunction from './is-function'
+import isGeneratorFunction from './is-generator-function'
 
 function iterableEach(iterable, iteratee) {
   const iterator = iterable[SYMBOL_ITERATOR]()
   let index = -1
-  let value
-  let done
+
   while (true) {
     index += 1
-    ;({value, done} = iterator.next())
+    const {value, done} = iterator.next()
 
     if (done) {
       break
     }
 
-    const shouldContinue = iteratee(value, index, iterable)
+    const shouldContinue = iteratee(value, index, iterator)
 
     if (shouldContinue === false) {
       break
@@ -23,10 +23,10 @@ function iterableEach(iterable, iteratee) {
   }
 }
 
-function forEach(iterable, iteratee) {
-  const {length} = iterable
+function forEach(value, iteratee) {
+  const {length} = value
   for (let index = 0; index < length; index += 1) {
-    const shouldContinue = iteratee(iterable[index], index, iterable)
+    const shouldContinue = iteratee(value[index], index, value)
 
     /* istanbul ignore if  */
     if (shouldContinue === false) {
@@ -36,7 +36,10 @@ function forEach(iterable, iteratee) {
 }
 
 function each(iterable, iteratee) {
-  // prefer iterable
+  if (isGeneratorFunction(iterable)) {
+    iterable = iterable()
+  }
+
   if (isFunction(iterable[SYMBOL_ITERATOR])) {
     return iterableEach(iterable, iteratee)
   }

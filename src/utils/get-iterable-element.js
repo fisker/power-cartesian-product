@@ -2,7 +2,7 @@ import isArrayLike from './is-array-like'
 import each from './each'
 
 function getIterableElement(iterable, index) {
-  // prefer iterable
+  // prefer arrayLike
   if (isArrayLike(iterable)) {
     return iterable[index]
   }

@@ -69,6 +69,24 @@ test('supports `Iterable`', t => {
   t.is([...combinations].join('|'), '0,0|0,1|1,0|1,1')
 })
 
+test('supports `GeneratorFunction`', t => {
+  function* elementsGenerator() {
+    yield 0
+    yield 1
+  }
+
+  function* generator() {
+    yield elementsGenerator
+    yield elementsGenerator
+  }
+
+  t.is([...product(generator)].join('|'), '0,0|0,1|1,0|1,1')
+  t.is(
+    [...product([elementsGenerator, elementsGenerator])].join('|'),
+    '0,0|0,1|1,0|1,1'
+  )
+})
+
 test('size & bigSize', t => {
   const MAX_ARRAY_LENGTH = 2 ** 32 - 1
   const element = new Array(MAX_ARRAY_LENGTH)
