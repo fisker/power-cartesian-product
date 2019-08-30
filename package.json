@@ -1,7 +1,7 @@
 {
   "name": "power-cartesian-product",
   "description": "powerful cartesian product",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "browser": "lib/index.min.js",
