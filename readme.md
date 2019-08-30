@@ -54,7 +54,7 @@ Returns: combinations
 
 #### sets
 
-type: `iterable | arrayLike`
+type: `iterable | arrayLike | GeneratorFunction`
 
 #### combinations
 

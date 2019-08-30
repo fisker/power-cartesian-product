@@ -3,9 +3,9 @@ module.exports = {
     [
       '@babel/env',
       {
-        // debug: true,
+        debug: true,
         corejs: 3,
-        exclude: ['transform-typeof-symbol'],
+        exclude: ['transform-typeof-symbol', 'transform-regenerator'],
         // useBuiltIns: 'usage',
         modules: false,
       },
