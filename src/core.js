@@ -113,6 +113,7 @@ class FastCartesianProduct {
   }
 
   get bigSize() {
+    // eslint-disable-next-line node/no-unsupported-features/es-builtins
     let size = BigInt(1)
 
     each(this.sets, elements => {

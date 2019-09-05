@@ -17,6 +17,7 @@ console.log(
     ),
     Number.MAX_VALUE,
   ].map(index => ({
+    // eslint-disable-next-line node/no-unsupported-features/es-builtins
     index: BigInt(index).toString(),
     value: combinations.get(index).join(''),
   }))
