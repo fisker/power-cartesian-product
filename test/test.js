@@ -4,8 +4,16 @@ import FastCartesianProduct from '../src'
 const product = sets => new FastCartesianProduct(sets)
 
 test('main', t => {
-  const combinations = product([[0, 1], ['A', 'B']])
-  const result = [[0, 'A'], [0, 'B'], [1, 'A'], [1, 'B']]
+  const combinations = product([
+    [0, 1],
+    ['A', 'B'],
+  ])
+  const result = [
+    [0, 'A'],
+    [0, 'B'],
+    [1, 'A'],
+    [1, 'B'],
+  ]
 
   t.deepEqual(Array.from(combinations).join(), result.join())
 
@@ -91,7 +99,10 @@ test('size & bigSize', t => {
   const MAX_ARRAY_LENGTH = 2 ** 32 - 1
   const element = new Array(MAX_ARRAY_LENGTH)
   const {bigSize, size} = product(Array.from({length: 33}, () => element))
-  const combinations = product([[0, 1], ['A', 'B']])
+  const combinations = product([
+    [0, 1],
+    ['A', 'B'],
+  ])
 
   t.is(combinations.size, 4)
   t.is(combinations.bigSize, BigInt(4))
@@ -108,7 +119,10 @@ test('size & bigSize', t => {
 })
 
 test('get & getIndexes', t => {
-  const combinations = product([[0, 1], ['A', 'B']])
+  const combinations = product([
+    [0, 1],
+    ['A', 'B'],
+  ])
 
   t.deepEqual(combinations.get(2), [1, 'A'])
   t.deepEqual(combinations.getIndexes(2), [1, 0])

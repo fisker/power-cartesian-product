@@ -17,7 +17,10 @@ this module was named `fast-cartesian-product` before `v0.0.3`, now it's split i
 ```js
 import PowerCartesianProduct from 'power-cartesian-product'
 
-const inputs = [[0, 1], ['A', 'B']]
+const inputs = [
+  [0, 1],
+  ['A', 'B'],
+]
 
 for (const combination of new PowerCartesianProduct(inputs)) {
   console.log(combination)
@@ -105,7 +108,10 @@ Returns: `array`
 
 ```js
 // 3rd combination
-new PowerCartesianProduct([[0, 1], ['A', 'B']]).get(2)
+new PowerCartesianProduct([
+  [0, 1],
+  ['A', 'B'],
+]).get(2)
 // -> [1, 'A']
 ```
 
@@ -117,7 +123,10 @@ Returns: `array<number>`
 
 ```js
 // 3rd combination indexes
-new PowerCartesianProduct([[0, 1], ['A', 'B']]).getIndexes(2)
+new PowerCartesianProduct([
+  [0, 1],
+  ['A', 'B'],
+]).getIndexes(2)
 // -> [1, 0]
 ```
 
@@ -128,7 +137,10 @@ a getter to get `size` of combinations, this might be `Infinity` for big combina
 Returns: `int | infinity`
 
 ```js
-new PowerCartesianProduct([[0, 1], ['A', 'B']]).size
+new PowerCartesianProduct([
+  [0, 1],
+  ['A', 'B'],
+]).size
 // -> 4
 
 new PowerCartesianProduct(new Array(256).fill(new Array(16))).size
@@ -142,7 +154,10 @@ a getter to get BigInt `size` of combinations.
 Returns: `BigInt`
 
 ```js
-new PowerCartesianProduct([[0, 1], ['A', 'B']]).bigSize
+new PowerCartesianProduct([
+  [0, 1],
+  ['A', 'B'],
+]).bigSize
 // -> 4n
 
 new PowerCartesianProduct(new Array(33).fill(new Array(2 ** 32 - 1))).bigSize
