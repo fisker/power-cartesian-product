@@ -41,7 +41,7 @@ node -r esm examples/big-combinations.js
 ## Files
 
 ```text
-lib/
+dist/
 ├─ index.common.js  ( CommonJS )
 ├─ index.js         ( UMD )
 ├─ index.min.js     ( UMD, compressed )

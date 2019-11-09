@@ -2,11 +2,11 @@
   "name": "power-cartesian-product",
   "description": "powerful cartesian product",
   "version": "0.0.4",
-  "main": "lib/index.js",
-  "module": "lib/index.mjs",
-  "browser": "lib/index.min.js",
-  "unpkg": "lib/index.min.js",
-  "jsdelivr": "lib/index.min.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "browser": "dist/index.min.js",
+  "unpkg": "dist/index.min.js",
+  "jsdelivr": "dist/index.min.js",
   "repository": "fisker/power-cartesian-product",
   "homepage": "https://github.com/fisker/power-cartesian-product#readme",
   "publishConfig": {
@@ -51,17 +51,18 @@
     }
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
     "build": "run-p build:*",
     "build:js": "rollup --config",
-    "clean": "rimraf lib",
+    "clean": "rimraf dist",
     "dist": "run-p dist:*",
     "dist:npm": "np --yolo --no-yarn",
     "format": "run-p format:*",
     "format:eslint": "yarn lint:eslint --fix",
-    "format:prettier": "prettier \"**/*.{css,html,js,json,less,md,scss,ts,vue,yaml,yml}\" --write",
+    "format:markdown": "yarn lint:markdown --fix",
+    "format:prettier": "yarn lint:prettier --write",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint \"**/*.{js,mjs,vue}\"",
     "lint:markdown": "markdownlint \"**/*.md\" --ignore \"**/node_modules/**\"",

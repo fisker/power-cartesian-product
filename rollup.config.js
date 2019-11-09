@@ -27,14 +27,14 @@ const builds = {
   output: [
     // umd build
     {
-      file: 'lib/index.js',
+      file: 'dist/index.js',
       format: 'umd',
       name: moduleName,
       sourcemap: true,
     },
     // esm build
     {
-      file: 'lib/index.mjs',
+      file: 'dist/index.mjs',
       format: 'esm',
       sourcemap: true,
     },
