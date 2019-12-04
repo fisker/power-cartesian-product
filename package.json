@@ -1,17 +1,63 @@
 {
   "name": "power-cartesian-product",
-  "description": "powerful cartesian product",
   "version": "0.0.5",
+  "description": "powerful cartesian product",
+  "homepage": "https://github.com/fisker/power-cartesian-product#readme",
+  "repository": "fisker/power-cartesian-product",
+  "license": "MIT",
+  "author": {
+    "name": "fisker Cheung",
+    "email": "lionkay@gmail.com",
+    "url": "https://www.fiskercheung.com/"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "main": "dist/index.js",
+  "jsdelivr": "dist/index.min.js",
+  "unpkg": "dist/index.min.js",
   "module": "dist/index.mjs",
   "browser": "dist/index.min.js",
-  "unpkg": "dist/index.min.js",
-  "jsdelivr": "dist/index.min.js",
-  "repository": "fisker/power-cartesian-product",
-  "homepage": "https://github.com/fisker/power-cartesian-product#readme",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
+  "scripts": {
+    "build": "run-p build:*",
+    "build:js": "rollup --config",
+    "clean": "run-p clean:*",
+    "clean:dist": "del-cli dist",
+    "dist": "run-p dist:*",
+    "dist:npm": "np --yolo --no-yarn",
+    "format": "run-p format:*",
+    "format:eslint": "yarn lint:eslint --fix",
+    "format:markdown": "yarn lint:markdown --fix",
+    "format:package-json": "sort-package-json \"package.json\" \"packages/*/package.json\"",
+    "format:prettier": "yarn lint:prettier --write",
+    "lint": "run-p lint:*",
+    "lint:eslint": "eslint \"**/*.{js,mjs,vue}\"",
+    "lint:markdown": "markdownlint \"**/*.md\" --ignore \"**/node_modules/**\"",
+    "lint:package-json": "yarn run format:package-json --check",
+    "lint:prettier": "prettier \"**/*.{css,html,js,json,less,md,scss,ts,vue,yaml,yml}\" --check",
+    "release": "run-s clean build format test dist",
+    "test": "ava",
+    "test-coverage": "nyc ava"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "ava": {
+    "require": "esm",
+    "verbose": true
+  },
+  "nyc": {
+    "include": [
+      "src/**"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "require": "esm"
   },
   "devDependencies": {
     "@babel/core": "7.7.4",
@@ -42,53 +88,11 @@
     "rollup-plugin-filesize": "6.2.1",
     "rollup-plugin-node-resolve": "5.2.0",
     "rollup-plugin-prettier": "0.6.0",
-    "rollup-plugin-terser": "5.1.2"
+    "rollup-plugin-terser": "5.1.2",
+    "sort-package-json": "1.30.0"
   },
-  "license": "MIT",
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "run-p build:*",
-    "build:js": "rollup --config",
-    "clean": "del-cli dist",
-    "dist": "run-p dist:*",
-    "dist:npm": "np --yolo --no-yarn",
-    "format": "run-p format:*",
-    "format:eslint": "yarn lint:eslint --fix",
-    "format:markdown": "yarn lint:markdown --fix",
-    "format:prettier": "yarn lint:prettier --write",
-    "lint": "run-p lint:*",
-    "lint:eslint": "eslint \"**/*.{js,mjs,vue}\"",
-    "lint:markdown": "markdownlint \"**/*.md\" --ignore \"**/node_modules/**\"",
-    "lint:prettier": "prettier \"**/*.{css,html,js,json,less,md,scss,ts,vue,yaml,yml}\" --check",
-    "release": "run-s clean build format test dist",
-    "test": "ava",
-    "test-coverage": "nyc ava"
-  },
-  "author": {
-    "name": "fisker Cheung",
-    "email": "lionkay@gmail.com",
-    "url": "https://www.fiskercheung.com/"
-  },
-  "sideEffects": false,
-  "nyc": {
-    "require": "esm",
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "include": [
-      "src/**"
-    ]
-  },
-  "ava": {
-    "verbose": true,
-    "require": "esm"
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
