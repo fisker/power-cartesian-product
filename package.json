@@ -71,7 +71,7 @@
     "@fisker/lint-staged-config": "1.0.8",
     "@fisker/prettier-config": "1.0.24",
     "@rollup/plugin-commonjs": "11.0.0",
-    "@rollup/plugin-node-resolve": "6.0.0",
+    "@rollup/plugin-node-resolve": "6.1.0",
     "ava": "2.4.0",
     "cz-conventional-changelog": "3.0.2",
     "del-cli": "3.0.0",
