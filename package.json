@@ -66,7 +66,7 @@
     "@fisker/eslint-config": "1.6.1",
     "@fisker/eslint-config-ava": "1.2.6",
     "@fisker/husky-config": "1.1.5",
-    "@fisker/lint-staged-config": "1.0.8",
+    "@fisker/lint-staged-config": "1.0.10",
     "@fisker/prettier-config": "1.0.24",
     "@rollup/plugin-commonjs": "11.0.1",
     "@rollup/plugin-node-resolve": "7.0.0",
