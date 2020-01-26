@@ -31,21 +31,21 @@ test('empty check', t => {
     () => {
       product(() => {})
     },
-    TypeError,
+    {instanceOf: TypeError},
     '`sets` should be `Iterable`'
   )
   t.throws(
     () => {
       product([() => {}])
     },
-    TypeError,
+    {instanceOf: TypeError},
     'elements in `sets` should be `Iterable`'
   )
   t.throws(
     () => {
       product([[]])
     },
-    Error,
+    {instanceOf: Error},
     '`sets` should not have empty elements'
   )
 })
