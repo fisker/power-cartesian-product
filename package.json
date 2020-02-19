@@ -3,7 +3,11 @@
   "version": "0.0.5",
   "description": "powerful cartesian product",
   "homepage": "https://github.com/fisker/power-cartesian-product#readme",
+  "bugs": {
+    "url": "https://github.com/fisker/power-cartesian-product/issues"
+  },
   "repository": "fisker/power-cartesian-product",
+  "funding": "https://github.com/fisker/power-cartesian-product?sponsor=1",
   "license": "MIT",
   "author": {
     "name": "fisker Cheung",
