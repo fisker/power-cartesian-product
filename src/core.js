@@ -12,7 +12,7 @@ class FastCartesianProduct {
       throw new TypeError('`sets` should be `Iterable`')
     }
 
-    each(sets, elements => {
+    each(sets, (elements) => {
       if (!isIterable(elements)) {
         throw new TypeError('elements in `sets` should be `Iterable`')
       }
@@ -101,7 +101,7 @@ class FastCartesianProduct {
   get size() {
     let size = 1
 
-    each(this.sets, elements => {
+    each(this.sets, (elements) => {
       const elementsSize = getIterableSize(elements)
       size *= elementsSize
       if (!isFinite(size)) {
@@ -116,7 +116,7 @@ class FastCartesianProduct {
     // eslint-disable-next-line node/no-unsupported-features/es-builtins
     let size = BigInt(1)
 
-    each(this.sets, elements => {
+    each(this.sets, (elements) => {
       const elementsSize = getIterableBigSize(elements)
       size *= elementsSize
     })

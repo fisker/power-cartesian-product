@@ -1,9 +1,9 @@
 import test from 'ava'
 import FastCartesianProduct from '../src'
 
-const product = sets => new FastCartesianProduct(sets)
+const product = (sets) => new FastCartesianProduct(sets)
 
-test('main', t => {
+test('main', (t) => {
   const combinations = product([
     [0, 1],
     ['A', 'B'],
@@ -26,7 +26,7 @@ test('main', t => {
   }
 })
 
-test('empty check', t => {
+test('empty check', (t) => {
   t.throws(
     () => {
       product(() => {})
@@ -50,16 +50,16 @@ test('empty check', t => {
   )
 })
 
-test('supports `Set`', t => {
+test('supports `Set`', (t) => {
   const combinations = product(new Set([new Set([0])]))
   const result = [[0]]
   t.deepEqual(
-    Array.from(combinations).map(combination => Array.from(combination)),
+    Array.from(combinations).map((combination) => Array.from(combination)),
     result
   )
 })
 
-test('supports `ArrayLike`', t => {
+test('supports `ArrayLike`', (t) => {
   const elements = {
     length: 1,
     0: 0,
@@ -71,13 +71,13 @@ test('supports `ArrayLike`', t => {
   t.deepEqual([...combinations], [[0]])
 })
 
-test('supports `Iterable`', t => {
+test('supports `Iterable`', (t) => {
   const iterable = product([[0, 1]])
   const combinations = product([iterable, iterable])
   t.is([...combinations].join('|'), '0,0|0,1|1,0|1,1')
 })
 
-test('supports `GeneratorFunction`', t => {
+test('supports `GeneratorFunction`', (t) => {
   function* elementsGenerator() {
     yield 0
     yield 1
@@ -95,7 +95,7 @@ test('supports `GeneratorFunction`', t => {
   )
 })
 
-test('size & bigSize', t => {
+test('size & bigSize', (t) => {
   const MAX_ARRAY_LENGTH = 2 ** 32 - 1
   const element = new Array(MAX_ARRAY_LENGTH)
   const {bigSize, size} = product(Array.from({length: 33}, () => element))
@@ -118,7 +118,7 @@ test('size & bigSize', t => {
   )
 })
 
-test('get & getIndexes', t => {
+test('get & getIndexes', (t) => {
   const combinations = product([
     [0, 1],
     ['A', 'B'],
@@ -128,7 +128,7 @@ test('get & getIndexes', t => {
   t.deepEqual(combinations.getIndexes(2), [1, 0])
 })
 
-test('infinity products', t => {
+test('infinity products', (t) => {
   const element = Array.from({length: 10}, (_, i) => i)
   const combinations = product(Array.from({length: 1024}, () => element))
 

@@ -16,7 +16,7 @@ console.log(
         Math.floor(Math.random() * (Number.MAX_SAFE_INTEGER - MAX_ARRAY_LENGTH))
     ),
     Number.MAX_VALUE,
-  ].map(index => ({
+  ].map((index) => ({
     // eslint-disable-next-line node/no-unsupported-features/es-builtins
     index: BigInt(index).toString(),
     value: combinations.get(index).join(''),
