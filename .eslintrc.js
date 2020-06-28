@@ -13,7 +13,9 @@ module.exports = {
   parserOptions: {},
   extends: ['@fisker'],
   settings: {},
-  rules: {},
+  rules: {
+    'no-restricted-exports': 'off',
+  },
   plugins: [],
   globals: {},
   overrides: [
