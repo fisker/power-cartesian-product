@@ -53,7 +53,7 @@ class FastCartesianProduct {
 
   get(index) {
     const setsSize = getIterableSize(this.sets)
-    
+
     // eslint-disable-next-line unicorn/no-new-array
     const combination = new Array(setsSize)
 
