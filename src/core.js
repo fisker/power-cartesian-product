@@ -29,6 +29,7 @@ class FastCartesianProduct {
   getIndexes(index) {
     const setsSize = getIterableSize(this.sets)
 
+    // eslint-disable-next-line unicorn/no-new-array
     const indexes = new Array(setsSize)
 
     let indexRemaining = index
@@ -52,6 +53,8 @@ class FastCartesianProduct {
 
   get(index) {
     const setsSize = getIterableSize(this.sets)
+    
+    // eslint-disable-next-line unicorn/no-new-array
     const combination = new Array(setsSize)
 
     // TODO: add cache
@@ -79,6 +82,7 @@ class FastCartesianProduct {
   }
 
   [SYMBOL_ITERATOR]() {
+    // eslint-disable-next-line unicorn/no-this-assignment
     const instance = this
     const {size} = instance
     let index = 0
