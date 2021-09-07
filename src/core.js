@@ -74,7 +74,7 @@ class FastCartesianProduct {
 
       combination[combinationIndex] = getIterableElement(
         elements,
-        elementsIndex
+        elementsIndex,
       )
     }
 

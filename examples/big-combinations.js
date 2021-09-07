@@ -13,12 +13,14 @@ console.log(
       {length: 5},
       () =>
         MAX_ARRAY_LENGTH +
-        Math.floor(Math.random() * (Number.MAX_SAFE_INTEGER - MAX_ARRAY_LENGTH))
+        Math.floor(
+          Math.random() * (Number.MAX_SAFE_INTEGER - MAX_ARRAY_LENGTH),
+        ),
     ),
     Number.MAX_VALUE,
   ].map((index) => ({
     // eslint-disable-next-line node/no-unsupported-features/es-builtins
     index: BigInt(index).toString(),
     value: combinations.get(index).join(''),
-  }))
+  })),
 )

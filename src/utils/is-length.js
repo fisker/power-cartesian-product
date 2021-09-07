@@ -1,6 +1,6 @@
 // https://github.com/lodash/lodash/blob/master/isLength.js
 
-const MAX_SAFE_INTEGER = 9007199254740991
+const MAX_SAFE_INTEGER = 9_007_199_254_740_991
 
 export default (value) =>
   typeof value === 'number' &&
