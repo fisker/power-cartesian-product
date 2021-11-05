@@ -1,6 +1,6 @@
-import isArrayLike from './is-array-like'
-import isSet from './is-set'
-import each from './each'
+import isArrayLike from './is-array-like.js'
+import isSet from './is-set.js'
+import each from './each.js'
 
 function getIterableSize(iterable) {
   if (isArrayLike(iterable)) {
