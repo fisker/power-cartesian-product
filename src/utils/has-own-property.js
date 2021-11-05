@@ -1,4 +1,4 @@
-import isValue from './is-value'
+import isValue from './is-value.js'
 
 const {hasOwnProperty} = Object.prototype
 

@@ -1,4 +1,4 @@
-import FastCartesionProduct from '../src'
+import FastCartesionProduct from '../src/index.js'
 
 const sets = [
   // string

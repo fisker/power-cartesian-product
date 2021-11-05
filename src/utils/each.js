@@ -1,7 +1,7 @@
-import SYMBOL_ITERATOR from './symbol-iterator'
-import isArrayLike from './is-array-like'
-import isFunction from './is-function'
-import isGeneratorFunction from './is-generator-function'
+import SYMBOL_ITERATOR from './symbol-iterator.js'
+import isArrayLike from './is-array-like.js'
+import isFunction from './is-function.js'
+import isGeneratorFunction from './is-generator-function.js'
 
 function iterableEach(iterable, iteratee) {
   const iterator = iterable[SYMBOL_ITERATOR]()

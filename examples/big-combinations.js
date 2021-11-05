@@ -1,4 +1,4 @@
-import FastCartesionProduct from '../src'
+import FastCartesionProduct from '../src/index.js'
 
 const MAX_ARRAY_LENGTH = 2 ** 32 - 1
 const numbers = Array.from({length: 10}, (_, index) => index)
@@ -19,7 +19,6 @@ console.log(
     ),
     Number.MAX_VALUE,
   ].map((index) => ({
-    // eslint-disable-next-line node/no-unsupported-features/es-builtins
     index: BigInt(index).toString(),
     value: combinations.get(index).join(''),
   })),
