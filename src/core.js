@@ -1,10 +1,10 @@
-import SYMBOL_ITERATOR from './utils/symbol-iterator'
-import isFinite from './utils/is-finite'
-import each from './utils/each'
-import getIterableSize from './utils/get-iterable-size'
-import getIterableBigSize from './utils/get-iterable-big-size'
-import getIterableElement from './utils/get-iterable-element'
-import isIterable from './utils/is-iterable'
+import SYMBOL_ITERATOR from './utils/symbol-iterator.js'
+import isFinite from './utils/is-finite.js'
+import each from './utils/each.js'
+import getIterableSize from './utils/get-iterable-size.js'
+import getIterableBigSize from './utils/get-iterable-big-size.js'
+import getIterableElement from './utils/get-iterable-element.js'
+import isIterable from './utils/is-iterable.js'
 
 class FastCartesianProduct {
   constructor(sets) {
@@ -117,7 +117,6 @@ class FastCartesianProduct {
   }
 
   get bigSize() {
-    // eslint-disable-next-line node/no-unsupported-features/es-builtins
     let size = BigInt(1)
 
     each(this.sets, (elements) => {
