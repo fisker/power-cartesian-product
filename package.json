@@ -79,7 +79,7 @@
     "ava": "4.3.3",
     "cz-conventional-changelog": "3.3.0",
     "del-cli": "5.0.0",
-    "eslint": "8.24.0",
+    "eslint": "8.25.0",
     "esm": "3.2.25",
     "husky": "7.0.4",
     "lint-staged": "12.5.0",
